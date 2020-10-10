@@ -1,14 +1,20 @@
 #include <iostream>
 
+using namespace std;
+
 template<class T>
 class bubble_sort{
 public:
     
-    bubble_sort(T& v){_v = v; std::cout << _v <<std::endl; std::cout << v <<std::endl;};
+    bubble_sort(T* v, size_t sz){
+        _v = v;
+        _sz = sz;
+    };
     ~bubble_sort(){};
 
-    T cal(); 
+    int cal(); 
 
 private:
     T* _v;
+    size_t _sz;
 };

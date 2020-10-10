@@ -1,34 +1,28 @@
 #include "bubble_sort.h"
 
-using namespace std;
+template<class T> 
+int bubble_sort<T>::cal(){
 
-template<class T>
-T bubble_sort<T>::cal(){
-    T a;
-    *a = 1;
+    if(_v == nullptr){
+        cerr << "Error: function bubble sort input is null." << endl;
+        return 0;
+    }
 
     T tmp;
+    for(int i=0;i<_sz; i++){
+        for(int j=0; j<_sz-i-1; j++){
+            if(_v[j] < _v[j+1]) continue;
+            tmp     = _v[j];
+            _v[j]   = _v[j+1];
+            _v[j+1] = tmp;
+        }
+    }
 
-    unsigned int sz = sizeof(_v)/sizeof(*_v);
-
-    // for(int i=0;i<sz; i++){
-    //     for(int j=1; j<sz-i; j++){
-    //         if(_v[i] < _v[j]) continue;
-    //         tmp = _v[i];
-    //         _v[i] = _v[j];
-    //     }
-    // }
-
-    cout << "sizeof(_v)  : " << sizeof(_v)  << endl; 
-    cout << "sizeof(*_v) : " << sizeof(*_v) << endl; 
-    cout << "_v[2] : " << _v[2] << endl; 
-    cout << "Input size : " << sz << endl; 
-
-    return a;
+    return 1;
 }
 
-template short*  bubble_sort<short* >::cal();
-template int*    bubble_sort<int*   >::cal();
-template long*   bubble_sort<long*  >::cal();
-template float*  bubble_sort<float* >::cal();
-template double* bubble_sort<double*>::cal();
+template int bubble_sort<short >::cal();
+template int bubble_sort<int   >::cal();
+template int bubble_sort<long  >::cal();
+template int bubble_sort<float >::cal();
+template int bubble_sort<double>::cal();

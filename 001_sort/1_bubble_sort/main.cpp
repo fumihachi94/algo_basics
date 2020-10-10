@@ -5,40 +5,20 @@
 
 using namespace std;
 
-template <class T>
-int bubble(T* _v, unsigned int sz){
-
-    if(_v == nullptr){
-        cout << "null: function bubble sort input is null." << endl;
-        return 0;
-    }
-
-    int tmp;
-    for(int i=0;i<sz; i++){
-        for(int j=0; j<sz-i-1; j++){
-            if(_v[j] < _v[j+1]) continue;
-            tmp     = _v[j];
-            _v[j]   = _v[j+1];
-            _v[j+1] = tmp;
-        }
-    }
-
-    return 1;
-}
-
 int main(void){
-    mytype v[] = {10, 45, 23, 45, 65, 20, 4};
+    mytype v[] = {10, 45, 23, 45, 65, 20, 4, 1};
+    
+    size_t sz = sizeof(v)/sizeof(*v);
 
-    int sz = sizeof(v)/sizeof(*v);
-    bubble(v, sz);
-
-    for(int i=0;i<sz; i++){
-        cout << v[i] << ", ";
-    }
+    for(int i=0;i<sz; i++) cout << v[i] << ", ";
     cout << endl;
 
-    //bubble_sort<mytype> sort(v); 
-    //sort.cal();
+    // 実行
+    bubble_sort<mytype> bubble(v, sz); 
+    if(bubble.cal()){
+        for(int i=0;i<sz; i++) cout << v[i] << ", ";
+        cout << endl;
+    }
 
     return 0;
 }
