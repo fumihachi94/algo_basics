@@ -1,3 +1,8 @@
+/************************************
+  1. Bubble Sort
+  @fumihachi
+  email: fumiya.sato.rop@gmail.com 
+************************************/
 #include <iostream>
 #include "bubble_sort.h"
 
